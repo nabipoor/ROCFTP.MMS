@@ -1,0 +1,26 @@
+Package: ROCFTP.MMS
+Type: Package
+Title: Perfect Sampling By Read ONCE Coupling From The Past (ROCFTP) with Metropolis-Multishift 
+Version: 1.0.0
+Authors@R: c(person("Majid", "Nabipoor", email = "nabipoor@ualberta.ca", role=c("aut", "cre","cph")), 
+           person("Duncan", "Murdoch", email="murdoch.duncan@gmail.com", role=c("aut")))
+Maintainer: Majid Nabipoor <nabipoor@ualberta.ca>
+Description: Generates pefecr sample from a given posterior function.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Language: en-us
+Depends: R (>= 3.6.0)
+Imports: 
+         stats (>= 4.0.3)
+RoxygenNote: 7.1.1
+Suggests: 
+    testthat (>= 3.0.0),
+    knitr
+Collate: 
+    'LR.R'
+    'multishift.R'
+    'M.MSH.sampler.R'
+    'CFTP.R'
+    'M.MSH.samler.R'
+    'ROCFTP.MMS.R'
