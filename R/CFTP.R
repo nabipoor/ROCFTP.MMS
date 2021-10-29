@@ -30,6 +30,6 @@ CFTP<- function (LB,start, post,sigma, log=FALSE)
     init<- allresult[T,]
     if(length(unique(samples[nrow(samples),]))==1 || r>50) break
   }
-  ifelse(r<50,return(y),return(noquote("Error: Change lentgh of coalesence block or sigma or log parameter")))
+  ifelse(r<50,return(y),return(noquote("Error: Change length of coalescence block or sigma or log parameter")))
 }
 

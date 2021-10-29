@@ -5,7 +5,7 @@
 # in order to keep independence between u and z
 #
 # Authors: Majid Nabipoor, Duncan Murdoch
-# revised: Oct. 2021
+# revised: October 2021
 
 L.R<- function(sigma)
 {

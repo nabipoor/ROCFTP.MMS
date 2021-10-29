@@ -2,26 +2,25 @@
 % Please edit documentation in R/ROCFTP.MMS.R
 \name{ROCFTP.MMS}
 \alias{ROCFTP.MMS}
-\title{Perfect Sampling By Read ONCE Coupling From The Past (ROCFTP) with
- Metropolis-Multishift}
+\title{Perfect Sampling}
 \usage{
 ROCFTP.MMS(LB, start, post, sigma, log = FALSE)
 }
 \arguments{
 \item{LB}{defines the length of each block. The algorithm starts new blocks to
-find a coalescence of the two Markov chains started from extremes of the most
-interest range. So if it is too small the algorithm after 50 blocks repetition
-will give error message, and if it is too large then it will increase the
-generation time.}
+find a coalescence of the two Markov chains started from extreme points of the
+most interest range. So, if it is too small the algorithm after 50 blocks
+repetition will give error message, and if it is too large then it will
+increase generation time.}
 
-\item{start}{is the initial values of the two extremes of the most interest
+\item{start}{is the initial values of the two extreme points of the most interest
 range of posterior.}
 
 \item{post}{is the posterior which is defined in the form of an R function.}
 
-\item{sigma}{is a standard deviation for Multshift coupler. Multishift coupler
+\item{sigma}{is a standard deviation for multishift coupler. Multishift coupler
 is constructed based on normal density. If the posterior is a mixture
-distribution or a multimodal distribution then sigma should be chosen in such
+distribution or a multi-modal distribution, then sigma should be chosen in such
 a way that Markov chains easily moves between modes, and if the sigma is
 chosen small; the Markov chains may trap in one mode and don't coalesce.}
 
@@ -29,17 +28,18 @@ chosen small; the Markov chains may trap in one mode and don't coalesce.}
 If TRUE; then posterior should be defined in log form.}
 }
 \description{
-\code{ROCFTP} generates one perfect sample for given posterior density based
- on the two extreme starting paths, minimum and maximum of the most interest
- range of the posterior. It uses the monotone random operation of Multishift
- coupler which allows to sandwich all of the state space in one point. It
- means both Markov Chain paths starting form the maximum and minimum will be
- coalesced. The generated sample is independent from the starting points. It
- is useful for mixture posteriors too.
+\code{ROCFTP}, Read Once Coupling From The Past, with Metropolis-Multishift
+ is used to generate perfect sample for given posterior density based on the
+ two extreme starting paths, minimum and maximum of the most interest range of
+ the posterior. It uses the monotone random operation of multishift coupler
+ which allows to sandwich all of the state space in one point. It means both
+ Markov Chains starting form the maximum and minimum will be coalesced.
+ The generated sample is independent from the starting points. It is useful
+ for mixture posteriors too.
 }
 \section{References}{
 
-Nabipoor M, Murdoch D. (2010) ROCFTP With Metropolis-Multishift, Summer
+Nabipoor M, Murdoch D. (2010) ROCFTP With Metropolis-Multishift Coupler, Summer
 Research, Department of Statistical and actuarial sciences, University of
 Western Ontario
 }
@@ -55,7 +55,7 @@ LB=30
 ROCFTP.MMS(LB,start, post,1)
 #Generate n i.i.d. exact sample
 RG <- function(i){ROCFTP.MMS(30, c(20,40), post, 1)}
-n <- 1000
+n <- 5
 mrtx <- matrix(1:n, ncol=1)
 dat <- apply(mrtx,1,RG)
 qqnorm(dat, pch = 16, frame = FALSE)
@@ -72,7 +72,7 @@ sigma <- 3.5
 ROCFTP.MMS(LB,start, post,sigma) #generates one exact sample
 #Generate n i.i.d. exact sample
 RG <- function(i){ROCFTP.MMS(116, c(-15,25), post, 3.5)}
-n <- 100
+n <- 5
 mrtx <- matrix(1:n, ncol=1)
 apply(mrtx,1,RG)
 
@@ -84,6 +84,6 @@ sigma=0.5
 ROCFTP.MMS(LB,start, post, sigma, log=TRUE)
 }
 \author{
-Majid Nabipoor: nabipoor@ualberta.ca,
+Majid Nabipoor: nabipoor@ualberta.ca
 Duncan Murdoch: murdoch.duncan@gmail.com
 }

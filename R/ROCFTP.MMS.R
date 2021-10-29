@@ -1,32 +1,31 @@
-
 #' @include LR.R multishift.R M.MSH.sampler.R CFTP.R
 NULL
 
-#'  Perfect Sampling By Read ONCE Coupling From The Past (ROCFTP) with
-#'  Metropolis-Multishift
+#'  Perfect Sampling
 #'
-#'  \code{ROCFTP} generates one perfect sample for given posterior density based
-#'  on the two extreme starting paths, minimum and maximum of the most interest
-#'  range of the posterior. It uses the monotone random operation of Multishift
-#'  coupler which allows to sandwich all of the state space in one point. It
-#'  means both Markov Chain paths starting form the maximum and minimum will be
-#'  coalesced. The generated sample is independent from the starting points. It
-#'  is useful for mixture posteriors too.
+#'  \code{ROCFTP}, Read Once Coupling From The Past, with Metropolis-Multishift
+#'  is used to generate perfect sample for given posterior density based on the
+#'  two extreme starting paths, minimum and maximum of the most interest range of
+#'  the posterior. It uses the monotone random operation of multishift coupler
+#'  which allows to sandwich all of the state space in one point. It means both
+#'  Markov Chains starting form the maximum and minimum will be coalesced.
+#'  The generated sample is independent from the starting points. It is useful
+#'  for mixture posteriors too.
 #'
 #' @param LB defines the length of each block. The algorithm starts new blocks to
-#' find a coalescence of the two Markov chains started from extremes of the most
-#' interest range. So if it is too small the algorithm after 50 blocks repetition
-#' will give error message, and if it is too large then it will increase the
-#' generation time.
+#' find a coalescence of the two Markov chains started from extreme points of the
+#' most interest range. So, if it is too small the algorithm after 50 blocks
+#' repetition will give error message, and if it is too large then it will
+#' increase generation time.
 #'
-#'@param start is the initial values of the two extremes of the most interest
+#'@param start is the initial values of the two extreme points of the most interest
 #' range of posterior.
 #'
 #' @param post is the posterior which is defined in the form of an R function.
 #'
-#' @param sigma is a standard deviation for Multshift coupler. Multishift coupler
+#' @param sigma is a standard deviation for multishift coupler. Multishift coupler
 #' is constructed based on normal density. If the posterior is a mixture
-#' distribution or a multimodal distribution then sigma should be chosen in such
+#' distribution or a multi-modal distribution, then sigma should be chosen in such
 #' a way that Markov chains easily moves between modes, and if the sigma is
 #' chosen small; the Markov chains may trap in one mode and don't coalesce.
 #'
@@ -34,7 +33,7 @@ NULL
 #' If TRUE; then posterior should be defined in log form.
 #'
 #' @section References:
-#' Nabipoor M, Murdoch D. (2010) ROCFTP With Metropolis-Multishift, Summer
+#' Nabipoor M, Murdoch D. (2010) ROCFTP With Metropolis-Multishift Coupler, Summer
 #' Research, Department of Statistical and actuarial sciences, University of
 #' Western Ontario
 #' @examples
@@ -48,7 +47,7 @@ NULL
 #' ROCFTP.MMS(LB,start, post,1)
 #' #Generate n i.i.d. exact sample
 #' RG <- function(i){ROCFTP.MMS(30, c(20,40), post, 1)}
-#' n <- 1000
+#' n <- 5
 #' mrtx <- matrix(1:n, ncol=1)
 #' dat <- apply(mrtx,1,RG)
 #' qqnorm(dat, pch = 16, frame = FALSE)
@@ -65,7 +64,7 @@ NULL
 #' ROCFTP.MMS(LB,start, post,sigma) #generates one exact sample
 #' #Generate n i.i.d. exact sample
 #' RG <- function(i){ROCFTP.MMS(116, c(-15,25), post, 3.5)}
-#' n <- 100
+#' n <- 5
 #' mrtx <- matrix(1:n, ncol=1)
 #' apply(mrtx,1,RG)
 #'
@@ -76,7 +75,7 @@ NULL
 #' sigma=0.5
 #' ROCFTP.MMS(LB,start, post, sigma, log=TRUE)
 #' @author
-#' Majid Nabipoor: nabipoor@@ualberta.ca,
+#' Majid Nabipoor: nabipoor@@ualberta.ca
 #' Duncan Murdoch: murdoch.duncan@@gmail.com
 #' @importFrom stats dnorm rnorm runif
 #' @export
@@ -84,10 +83,10 @@ NULL
 ROCFTP.MMS<- function(LB,start, post,sigma, log=FALSE)
 {
   if (LB <= 0 | length(LB) > 1 | is.numeric(LB)==FALSE) {
-    return(noquote("Error: The length of Time Bolck should be an integer"))
+    return(noquote("Error: LB should be an integer"))
   }
   if (length(start) != 2 | is.vector(start)==FALSE) {
-    return(noquote("Error: The length of start should be two"))
+    return(noquote("Error: The length of start vector should be two"))
   }
   if (sigma <= 0 | length(sigma) > 1 | is.numeric(sigma)==FALSE) {
     return(noquote("Error: sigma should be a positive number"))
