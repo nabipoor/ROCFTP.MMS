@@ -15,7 +15,7 @@ Imports:
          stats (>= 3.6.0)
 RoxygenNote: 7.1.1
 Suggests: 
-    testthat (>= 3.0.0)
+    testthat (>= 2.3.2)
 Collate: 
     'LR.R'
     'multishift.R'
