@@ -10,9 +10,10 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Language: en-us
 URL: https://github.com/nabipoor/ROCFTP.MMS
-Depends: R (>= 4.0.3)
+Depends: R (>= 4.0.0)
 Imports: 
-         stats (>= 4.0.3)
+         stats (>= 4.0.0),
+         vctrs (>= 0.3.8)
 RoxygenNote: 7.1.1
 Suggests: 
     testthat (>= 3.0.0)
