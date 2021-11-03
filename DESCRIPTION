@@ -11,6 +11,8 @@ Encoding: UTF-8
 Language: en-us
 URL: https://github.com/nabipoor/ROCFTP.MMS
 Depends: R (>= 3.6.0)
+Imports: 
+         stats (>= 3.6.1)
 RoxygenNote: 7.1.1
 Suggests: 
     testthat (>= 2.3.2)
