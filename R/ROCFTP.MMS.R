@@ -1,7 +1,7 @@
 #' @include LR.R multishift.R M.MSH.sampler.R CFTP.R
 NULL
 
-#'  Perfect Sampling
+#'  Perfect Sampling .....
 #'
 #'  \code{ROCFTP}, Read Once Coupling From The Past, with Metropolis-Multishift
 #'  is used to generate perfect sample for given posterior density based on the
