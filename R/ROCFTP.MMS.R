@@ -78,6 +78,7 @@ NULL
 #' Majid Nabipoor: nabipoor@@ualberta.ca
 #' Duncan Murdoch: murdoch.duncan@@gmail.com
 #' @importFrom stats dnorm rnorm runif
+#' @import vctrs
 #' @export
 
 ROCFTP.MMS<- function(LB,start, post,sigma, log=FALSE)
