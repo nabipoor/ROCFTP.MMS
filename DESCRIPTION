@@ -1,6 +1,6 @@
 Package: ROCFTP.MMS
 Type: Package
-Title: "Perfect Sampling" 
+Title: Perfect sampling 
 Version: 1.0.0
 Authors@R: c(person("Majid", "Nabipoor", email = "nabipoor@ualberta.ca", role=c("aut", "cre","cph")), 
            person("Duncan", "Murdoch", email="murdoch.duncan@gmail.com", role=c("aut")))
