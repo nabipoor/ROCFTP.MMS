@@ -28,14 +28,15 @@ chosen small; the Markov chains may trap in one mode and don't coalesce.}
 If TRUE; then posterior should be defined in log form.}
 }
 \description{
-\code{ROCFTP}, Read Once Coupling From The Past, with Metropolis-Multishift
- is used to generate perfect sample for given posterior density based on the
+\code{ROCFTP.MMS}, Read Once Coupling From The Past, with Metropolis-Multishift
+ is used to generate a perfect sample for given posterior density based on the
  two extreme starting paths, minimum and maximum of the most interest range of
  the posterior. It uses the monotone random operation of multishift coupler
  which allows to sandwich all of the state space in one point. It means both
  Markov Chains starting form the maximum and minimum will be coalesced.
  The generated sample is independent from the starting points. It is useful
- for mixture posteriors too.
+ for mixture posteriors too. This function's out put is a real value as an exact
+ sample drawn from the posterior distribution.
 }
 \section{References}{
 

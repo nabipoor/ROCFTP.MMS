@@ -3,14 +3,15 @@ NULL
 
 #'  Perfect Sampling
 #'
-#'  \code{ROCFTP}, Read Once Coupling From The Past, with Metropolis-Multishift
-#'  is used to generate perfect sample for given posterior density based on the
+#'  \code{ROCFTP.MMS}, Read Once Coupling From The Past, with Metropolis-Multishift
+#'  is used to generate a perfect sample for given posterior density based on the
 #'  two extreme starting paths, minimum and maximum of the most interest range of
 #'  the posterior. It uses the monotone random operation of multishift coupler
 #'  which allows to sandwich all of the state space in one point. It means both
 #'  Markov Chains starting form the maximum and minimum will be coalesced.
 #'  The generated sample is independent from the starting points. It is useful
-#'  for mixture posteriors too.
+#'  for mixture posteriors too. This function's output is a real value as an exact
+#'  draw from the posterior distribution.
 #'
 #' @param LB defines the length of each block. The algorithm starts new blocks to
 #' find a coalescence of the two Markov chains started from extreme points of the
@@ -18,12 +19,12 @@ NULL
 #' repetition will give error message, and if it is too large then it will
 #' increase generation time.
 #'
-#'@param start is the initial values of the two extreme points of the most interest
+#'@param start is a vector of the initial values of the two extreme points of the most interest
 #' range of posterior.
 #'
 #' @param post is the posterior which is defined in the form of an R function.
 #'
-#' @param sigma is a standard deviation for multishift coupler. Multishift coupler
+#' @param sigma is a real value for standard deviation of multishift coupler. Multishift coupler
 #' is constructed based on normal density. If the posterior is a mixture
 #' distribution or a multi-modal distribution, then sigma should be chosen in such
 #' a way that Markov chains easily moves between modes, and if the sigma is
@@ -81,7 +82,7 @@ NULL
 #' @import vctrs
 #' @export
 
-ROCFTP.MMS<- function(LB,start, post,sigma, log=FALSE)
+ROCFTP.MMS<- function(LB, start, post, sigma, log=FALSE)
 {
   if (LB <= 0 | length(LB) > 1 | is.numeric(LB)==FALSE) {
     return(noquote("Error: LB should be an integer"))
