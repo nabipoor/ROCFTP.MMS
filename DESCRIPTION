@@ -5,7 +5,7 @@ Version: 1.0.0
 Authors@R: c(person("Majid", "Nabipoor", email = "nabipoor@ualberta.ca", role=c("aut", "cre","cph")), 
            person("Duncan", "Murdoch", email="murdoch.duncan@gmail.com", role=c("aut")))
 Maintainer: Majid Nabipoor <nabipoor@ualberta.ca>
-Description: Th algorithm provided in this package generates perfect sample for unimodal or multimodal posteriors.
+Description: The algorithm provided in this package generates perfect sample for unimodal or multimodal posteriors.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Language: en-us
