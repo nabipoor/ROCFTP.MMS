@@ -4,11 +4,11 @@ NULL
 #'  Perfect Sampling
 #'
 #'  \code{ROCFTP.MMS}, Read Once Coupling From The Past, with Metropolis-Multishift
-#'  is used to generate a perfect sample for given posterior density based on the
+#'  is used to generate a perfect sample for a given posterior density based on the
 #'  two extreme starting paths, minimum and maximum of the most interest range of
 #'  the posterior. It uses the monotone random operation of multishift coupler
 #'  which allows to sandwich all of the state space in one point. It means both
-#'  Markov Chains starting form the maximum and minimum will be coalesced.
+#'  Markov Chains starting from the maximum and minimum will be coalesced.
 #'  The generated sample is independent from the starting points. It is useful
 #'  for mixture posteriors too. The output of this function is a real value as an exact
 #'  draw from the posterior distribution.
@@ -19,7 +19,7 @@ NULL
 #' repetition will give error message, and if it is too large then it will
 #' increase generation time.
 #'
-#'@param start is a vector of initial values or two extreme points of the most interest
+#'@param start is a vector of initial values or the two extreme points of the most interest
 #' range of posterior.
 #'
 #' @param post is the posterior which is defined in the form of an R function.
@@ -27,7 +27,7 @@ NULL
 #' @param sigma is a real value for standard deviation of multishift coupler. Multishift coupler
 #' is constructed based on normal density. If the posterior is a mixture
 #' distribution or a multi-modal distribution, then sigma should be chosen in such
-#' a way that Markov chains easily moves between modes, and if the sigma is
+#' a way that Markov chains easily jumps between modes, and if the sigma is
 #' chosen small; the Markov chains may trap in one mode and don't coalesce.
 #'
 #'@param log has the default value of FALSE for density function of posteriors.
