@@ -6,7 +6,7 @@ Authors@R: c(person("Majid", "Nabipoor", email = "nabipoor@ualberta.ca", role=c(
            person("Duncan", "Murdoch", email="murdoch.duncan@gmail.com", role=c("aut")))
 Maintainer: Majid Nabipoor <nabipoor@ualberta.ca>
 Description: The algorithm provided in this package generates perfect sample for unimodal or multimodal posteriors.
-David Wilson (1999) <https://arxiv.org/pdf/math/9912225.pdf>
+David Wilson (1999) https://arxiv.org/pdf/math/9912225.pdf
 License: MIT + file LICENSE
 Encoding: UTF-8
 Language: en-us
