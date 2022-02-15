@@ -16,6 +16,8 @@ Imports:
          vctrs (>= 0.3.8)
 RoxygenNote: 7.1.1
 Suggests: 
+    rmarkdown,
+    knitr,
     testthat (>= 3.0.0)
 Collate: 
     'LR.R'
@@ -23,3 +25,4 @@ Collate:
     'M.MSH.sampler.R'
     'CFTP.R'
     'ROCFTP.MMS.R'
+VignetteBuilder: knitr
