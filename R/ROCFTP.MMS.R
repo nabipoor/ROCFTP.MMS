@@ -10,7 +10,7 @@ NULL
 #'  which allows to sandwich all of the state space in one point. It means both
 #'  Markov Chains starting form the maximum and minimum will be coalesced.
 #'  The generated sample is independent from the starting points. It is useful
-#'  for mixture posteriors too. This function's output is a real value as an exact
+#'  for mixture posteriors too. The output of this function is a real value as an exact
 #'  draw from the posterior distribution.
 #'
 #' @param LB defines the length of each block. The algorithm starts new blocks to
@@ -19,7 +19,7 @@ NULL
 #' repetition will give error message, and if it is too large then it will
 #' increase generation time.
 #'
-#'@param start is a vector of the initial values of the two extreme points of the most interest
+#'@param start is a vector of initial values or two extreme points of the most interest
 #' range of posterior.
 #'
 #' @param post is the posterior which is defined in the form of an R function.
@@ -113,5 +113,8 @@ ROCFTP.MMS<- function(LB, start, post, sigma, log=FALSE)
     if(length(unique(samples[nrow(samples),]))==1) break
   }
   return(y) }
+  if (is.numeric(y)==FALSE) {
+    return(noquote("Error: No return value, check parameters"))
+  }
 }
 

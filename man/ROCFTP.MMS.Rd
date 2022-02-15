@@ -13,12 +13,12 @@ most interest range. So, if it is too small the algorithm after 50 blocks
 repetition will give error message, and if it is too large then it will
 increase generation time.}
 
-\item{start}{is the initial values of the two extreme points of the most interest
+\item{start}{is a vector of initial values or two extreme points of the most interest
 range of posterior.}
 
 \item{post}{is the posterior which is defined in the form of an R function.}
 
-\item{sigma}{is a standard deviation for multishift coupler. Multishift coupler
+\item{sigma}{is a real value for standard deviation of multishift coupler. Multishift coupler
 is constructed based on normal density. If the posterior is a mixture
 distribution or a multi-modal distribution, then sigma should be chosen in such
 a way that Markov chains easily moves between modes, and if the sigma is
@@ -35,8 +35,8 @@ If TRUE; then posterior should be defined in log form.}
  which allows to sandwich all of the state space in one point. It means both
  Markov Chains starting form the maximum and minimum will be coalesced.
  The generated sample is independent from the starting points. It is useful
- for mixture posteriors too. This function's out put is a real value as an exact
- sample drawn from the posterior distribution.
+ for mixture posteriors too. The output of this function is a real value as an exact
+ draw from the posterior distribution.
 }
 \section{References}{
 
